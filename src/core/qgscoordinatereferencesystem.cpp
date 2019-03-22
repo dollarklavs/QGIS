@@ -195,18 +195,18 @@ bool QgsCoordinateReferenceSystem::createFromId( const long id, CrsType type )
   bool result = false;
   switch ( type )
   {
-  case InternalCrsId:
-    result = createFromSrsId( id );
-    break;
-  case PostgisCrsId:
-    result = createFromSrid( id );
-    break;
-  case EpsgCrsId:
-    result = createFromOgcWmsCrs( QStringLiteral( "EPSG:%1" ).arg( id ) );
-    break;
-  default:
-    //THIS IS BAD...THIS PART OF CODE SHOULD NEVER BE REACHED...
-    QgsDebugMsg( QStringLiteral( "Unexpected case reached!" ) );
+    case InternalCrsId:
+      result = createFromSrsId( id );
+      break;
+    case PostgisCrsId:
+      result = createFromSrid( id );
+      break;
+    case EpsgCrsId:
+      result = createFromOgcWmsCrs( QStringLiteral( "EPSG:%1" ).arg( id ) );
+      break;
+    default:
+      //THIS IS BAD...THIS PART OF CODE SHOULD NEVER BE REACHED...
+      QgsDebugMsg( QStringLiteral( "Unexpected case reached!" ) );
   };
   return result;
 }
